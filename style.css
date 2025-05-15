@@ -33,13 +33,13 @@ body {
 .sidebar h1 {
     font-size: 2.2xem;
     margin-bottom: 15px;
-    color: #e0e0e0;
+    color: #4169e1;
     letter-spacing: 0.5px; /* 轻微的字间距 */
 }
 
 .sidebar h2 { 
     font-size: 1.4em;
-    color: #ffb300;/* 金色 */
+    color: #FFD770;/* 金色 */
     font-style: italic; /* 倾斜 */
     margin-top: 15px;
     margin-bottom: 25px;
@@ -86,7 +86,7 @@ body {
 
 .content h2 {
     font-size: 2.6em;
-    color: #e0e0e0;
+    color: #2E8B57;
     margin-bottom: 30px;
     border-bottom: 2px solid #333;
     padding-bottom: 18px;
@@ -106,6 +106,7 @@ body {
     margin-bottom: 35px;
     padding-bottom: 30px;
     border-bottom: 1px solid #333;
+    transition: background-color 0.3s ease;
 }
 
 .post-item:last-child {
@@ -125,7 +126,7 @@ body {
 }
 
 .post-date {
-    color: #777;
+    color: #00BFFF;
     font-size: 0.95em;
     margin-bottom: 12px;
     display: block;
@@ -146,10 +147,18 @@ body {
         margin-right: 0;
         margin-bottom: 30px;
         padding: 30px;
+        height: auto;
+        position: static;
     }
     .content {
         margin-left: 0;
         padding: 30px;
+        max-height: none;
+        float: none;
+        width: 100%;
+        padding: 30px;
+        height: auto;
+        position: static;
     }
     .sidebar h1 {
         font-size: 2em;
@@ -168,7 +177,7 @@ body {
     display: block;
     width: 50px;
     height: 2px;
-    background-color: #ffb300; /* 金色 */
+    background-color: #FFD770; /* 金色 */
     margin: 10px auto 0;
 }
 
@@ -177,7 +186,7 @@ body {
     display: block;
     width: 80px;
     height: 3px;
-    background-color: #ffb300; /* 金色 */
+    background-color: #FFD770; /* 金色 */
     margin-top: 15px;
 }
 
@@ -215,6 +224,7 @@ body {
     align-items: center;
     transform: translateX(100%); /* 初始时隐藏在右侧 */
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
 .nav-menu ul {
@@ -226,12 +236,24 @@ body {
 .nav-menu li {
     padding: 15px;
     text-align: center;
+    height :auto;
+}
+
+.nav-menu li:hover {
+    transform: scale(1.6);
 }
 
 .nav-menu a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 15px;
+    display: block;    
+}
+
+.nav-menu a:hover {
+    color: #FFD770;
 }
 
 /* 激活状态的样式 */
