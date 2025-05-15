@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const posts = [
         {
-            date: 'Fir 14th, 2025',
+            date: 'May 14, 2025',
             title: 'Create Notes',
             description: 'about creating notes',
             link: '/posts/Create_notes.html'
@@ -28,9 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //  回到主页
     function goToHomePage() {
-        window.location.href = 'index.html';  //  确保这是你的主页文件名
+        window.location.href = '../index.html';  //  确保这是你的主页文件名
     }
 
-    generatePosts();  //  页面加载时生成文章列表
-    homeLink.addEventListener('click', goToHomePage);  //  点击头像回到主页
+    if (homeButton) {
+        homeButton.addEventListener('click', goToHomePage);
+    } else {
+        console.error('Home button element not found!');
+    }
+
+    generatePosts();
 });
