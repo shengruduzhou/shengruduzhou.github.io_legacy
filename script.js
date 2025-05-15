@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const posts = [
         {
             date: 'May 14, 2025',
-            title: 'Create Notes',
-            description: 'about creating notes',
+            title: 'Development Notes',
+            description: 'About Development Notes',
             link: '/posts/Development_Notes.html'
         }
     ];
