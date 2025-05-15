@@ -44,16 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         postsContainer.innerHTML = postsHTML;
     }
-
-    // 添加事件监听器
-    if (homeButton) {
-        homeButton.addEventListener('click', goToHomePage);
-    } else {
-        console.error('Home button element noct found!');
-    }
-
-    generatePosts();
-
+    
     //  菜单的点击事件处理
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('toggle');  //  切换 .toggle 类
