@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const homeLink = document.getElementById('home-link');
-    const homeButton = document.getElementById('home-button');
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -63,4 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     generatePosts();
+
+
+    //  返回顶部
+    const topPageLink = document.getElementById('top-page-link');
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    if (topPageLink) {
+        topPageLink.addEventListener('click', function(event) {
+            event.preventDefault();  //  阻止默认行为
+            scrollToTop();
+        });
+    } else {
+        console.error('Top page link element not found!');
+    }
 });
