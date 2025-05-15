@@ -32,6 +32,5 @@ document.addEventListener('DOMContentLoaded', function() {
             GeneralFunction.generateTags();
         }
     });
-
     GeneralFunction.initTags();
 });

@@ -40,6 +40,5 @@ document.addEventListener('DOMContentLoaded', function() {
             GeneralFunction.generatePosts();
         }
     });
-
     GeneralFunction.initIndex();
 });
