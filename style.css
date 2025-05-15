@@ -10,13 +10,14 @@ body {
     float: left;
     width: 280px;
     margin-right: 40px;
+    max-height: 90vh;
     text-align: center;
     padding: 40px 30px; /* 增加内边距 */
     background-color: #1e1e1e; /* 稍浅的黑色侧边栏背景 */
     border-radius: 12px; /* 更柔和的圆角 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 更深的阴影 */
     overflow-x: auto;
-    overflow-y: auto; 
+    overflow-y: auto
 }
 
 .avatar {
@@ -74,6 +75,7 @@ body {
 .content {
     margin-left: 320px;
     padding: 40px;
+    max-height: 90vh;
     background-color: #1e1e1e; /* 稍浅的黑色内容背景 */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
