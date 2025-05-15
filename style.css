@@ -54,7 +54,7 @@ body {
 
 .social-links a {
     display: inline-block;
-    margin: 0 18px;
+    margin: 0 px;
     text-decoration: none;
     color: #64b5f6; /* 蓝色链接 */
     font-size: 1.2em;
@@ -63,6 +63,12 @@ body {
 
 .social-links a:hover {
     color: #a7c9f5; /* 鼠标悬停时更亮的蓝色 */
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
 }
 
 .content {
