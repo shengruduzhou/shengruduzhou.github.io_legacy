@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 40px;
     line-height: 1.7;
     background-color: #121212; /* 深黑色背景 */
@@ -11,10 +11,12 @@ body {
     width: 280px;
     margin-right: 40px;
     text-align: center;
-    padding: 40px 30px; /* 增加一些内边距 */
+    padding: 40px 30px; /* 增加内边距 */
     background-color: #1e1e1e; /* 稍浅的黑色侧边栏背景 */
     border-radius: 12px; /* 更柔和的圆角 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 更深的阴影 */
+    overflow-x: auto;
+    overflow-y: auto; 
 }
 
 .avatar {
@@ -22,20 +24,19 @@ body {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 25px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     border: 2px solid #333; /* 细边框 */
 }
 
 .sidebar h1 {
-    font-size: 2.2em;
+    font-size: 2.2xem;
     margin-bottom: 15px;
     color: #e0e0e0;
     letter-spacing: 0.5px; /* 轻微的字间距 */
 }
 
 .sidebar h2 { 
-    font-size: 1.5em;
+    font-size: 1.4em;
     color: #ffb300;/* 金色 */
     font-style: italic; /* 倾斜 */
     margin-top: 15px;
@@ -45,7 +46,7 @@ body {
 }
 
 .sidebar p {
-    font-size: 0.4em;
+    font-size: 0.6em;
     color: #aaa;
     margin-bottom: 30px;
     text-align:left;
@@ -70,6 +71,8 @@ body {
     background-color: #1e1e1e; /* 稍浅的黑色内容背景 */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .content h2 {
