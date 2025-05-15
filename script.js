@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         postsContainer.innerHTML = postsHTML;
     }
-
+    
+    const homeLink = document.getElementById('home-link');
     const homeButton = document.getElementById('home-button');
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -44,16 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
         postsContainer.innerHTML = postsHTML;
     }
 
-    //  回到主页
-    function goToHomePage() {
-        window.location.href = '../index.html';
-    }
-
     // 添加事件监听器
     if (homeButton) {
         homeButton.addEventListener('click', goToHomePage);
     } else {
-        console.error('Home button element not found!');
+        console.error('Home button element noct found!');
     }
 
     generatePosts();
@@ -69,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = '../index.html';  //  确保这是你的主页文件名
     }
 
-    if (homeButton) {
-        homeButton.addEventListener('click', goToHomePage);
+    if (homeLink) {
+        homeLink.addEventListener('click', goToHomePage);
     } else {
-        console.error('Home button element not found!');
+        console.error('Home link element not found!');
     }
 
     generatePosts();
