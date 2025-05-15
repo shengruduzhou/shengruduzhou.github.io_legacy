@@ -34,6 +34,16 @@ body {
     letter-spacing: 0.5px; /* 轻微的字间距 */
 }
 
+.sidebar h2 { 
+    font-size: 1.5em;
+    color: #ffb300;/* 金色 */
+    font-style: italic; /* 倾斜 */
+    margin-top: 15px;
+    margin-bottom: 25px;
+    letter-spacing: 0.6px;
+    text-align: center;
+}
+
 .sidebar p {
     font-size: 1em;
     color: #aaa;
