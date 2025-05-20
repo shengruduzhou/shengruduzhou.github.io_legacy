@@ -1,6 +1,10 @@
 // index & posts
 document.addEventListener('DOMContentLoaded', function() {
-    Object.assign(GeneralFunction, {
+    if (!window.GeneralFunction) {
+        window.GeneralFunction = {};
+    }
+
+    Object.assign(window.GeneralFunction, {
         postsContainer: null,
         posts: [
             {
@@ -12,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
 
         generatePosts: function() {
-            if (GeneralFunction.postsContainer && Array.isArray(GeneralFunction.posts)) {
+            if (this.postsContainer && Array.isArray(this.posts)) {
                 let postsHTML = '';
-                GeneralFunction.posts.forEach(post => {
+                this.posts.forEach(post => {
                     postsHTML += `
                         <div class="post-item">
                             <span class="post-date">${post.date}</span>
@@ -23,22 +27,25 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     `;
                 });
-                GeneralFunction.postsContainer.innerHTML = postsHTML;
+                this.postsContainer.innerHTML = postsHTML;
             } else {
                 console.error('postsContainer or posts not initialized!');
             }
         },
 
         initIndex: function() {
-            GeneralFunction.menuToggle = document.querySelector('.menu-toggle');
-            GeneralFunction.navMenu = document.querySelector('.nav-menu');
-            GeneralFunction.homeLink = document.getElementById('home-link');
-            GeneralFunction.postsContainer = document.querySelector('.posts-container');
+            this.menuToggle = document.querySelector('.menu-toggle');
+            this.navMenu = document.querySelector('.nav-menu');
+            this.homeLink = document.getElementById('home-link');
+            this.postsContainer = document.querySelector('.posts-container');
 
-            GeneralFunction.handleMenuToggle();
-            GeneralFunction.goToHomePage();
-            GeneralFunction.generatePosts();
+            if (this.postsContainer) {
+                this.generatePosts();
+            } else {
+                console.error('postsContainer not found!');
+            }
         }
     });
-    GeneralFunction.initIndex();
+
+    window.GeneralFunction.initIndex();
 });

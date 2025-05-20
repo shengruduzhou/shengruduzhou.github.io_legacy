@@ -1,20 +1,7 @@
 // script
-const GeneralFunction = {
-    menuToggle: null,
-    navMenu: null,
+window.GeneralFunction = {
     homeLink: null,
     topPageLink: null,
-
-    handleMenuToggle: function() {
-        if (this.menuToggle && this.navMenu) {
-            this.menuToggle.addEventListener('click', () => {
-                this.menuToggle.classList.toggle('toggle');
-                this.navMenu.classList.toggle('nav-active');
-            });
-        } else {
-            console.error('menuToggle or navMenu not initialized!');
-        }
-    },
 
     goToHomePage: function() {
         if (this.homeLink) {
@@ -42,12 +29,9 @@ const GeneralFunction = {
     },
 
     init: function() {
-        this.menuToggle = document.querySelector('.menu-toggle');
-        this.navMenu = document.querySelector('.nav-menu');
         this.homeLink = document.getElementById('home-link');
-        this.topPageLink = document.getElementById('top-page-link'); // 获取 topPageLink
+        this.topPageLink = document.getElementById('top-page-link');
 
-        this.handleMenuToggle();
         this.goToHomePage();
         this.scrollToTop();
     }

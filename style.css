@@ -3,8 +3,8 @@ body {
     margin: 20px;
     padding: 0;
     line-height: 1.7;
-    background-color: #121212; /* 深黑色背景 */
-    color: #f0f0f0; /* 浅灰色文字 */
+    background-color: #121212;
+    color: #f0f0f0;
     position: relative;
     overflow-x: auto;
 }
@@ -13,25 +13,25 @@ body {
 .wrapper {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 40px 24px; 
     display: flex;
     flex-direction: row !important;
     gap: 40px;
-    align-items: flex-start;
+    align-items: flex-start; 
     min-width: 600px;
     overflow-x: auto;
 }
 
 /* sidebar 间距和内容居中 */
 .sidebar {
-    position: fixed;
-    top: 20px;
+    position: sticky; /* 尝试 sticky 定位 */
+    top: 40px;       
     left: 20px;
     width: 280px;
+    height: calc(100vh); /* 限制高度 */
     margin-right: 0;
-    max-height: calc(90vh - 40px);
     text-align: center;
-    padding: 40px 30px 40px 30px;
+    padding: 40px 30px;
     background-color: #1e1e1e;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -43,6 +43,7 @@ body {
     justify-content: flex-start;
     z-index: 100;
 }
+
 
 .sidebar:hover {
     border-color: rgba(255, 215, 112, 0.3);
@@ -165,11 +166,12 @@ body {
 
 /* 主内容区宽度、居中和间距 */
 .content {
-    margin-left: 340px;
-    margin-top: 20px;
+    position: sticky;
+    margin-left: 360px; /* sidebar (280px) + left (20px) + gap (40px) + 一些额外空间 */
+    margin-top: 0;
     margin-bottom: 20px;
     padding: 40px;
-    max-height: calc(90vh - 40px);
+    max-height: calc(130vh);
     background-color: #1e1e1e;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -292,13 +294,14 @@ body {
     top: 0;
     right: 0;
     width: 250px;
-    height: 100%;
+    height: 100vh;
     background: rgba(30, 30, 30, 0.95);
     backdrop-filter: blur(10px);
     transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.1s ease-in-out;
     z-index: 1000;
     border-left: 1px solid rgba(255, 215, 112, 0.2);
+    padding-top: 60px;
 }
 
 .nav-menu.nav-active {
@@ -370,7 +373,7 @@ body {
 
 /* 鼠标跟随效果样式 */
 .cursor-trail {
-    position: fixed;
+    position: absolute;
     width: 8px;
     height: 8px;
     background: rgba(255, 215, 112, 0.5);
@@ -383,16 +386,6 @@ body {
 }
 
 /* 导航菜单动画样式 */
-.nav-menu {
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-.nav-menu.nav-active {
-    transform: translateX(0);
-}
-
-/* 文章卡片动画样式 */
 .post-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -477,31 +470,52 @@ html {
     font-size: 24px;
     color: #FFD770;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 50%;
     background: rgba(30, 30, 30, 0.8);
+    border-radius: 50%;
     border: 1px solid rgba(255, 215, 112, 0.3);
-    z-index: 2000;
+    transition: all 0.3s ease;
+    z-index: 1001;
 }
 
 .menu-close:hover {
     transform: rotate(90deg);
     background: rgba(30, 30, 30, 0.95);
     border-color: rgba(255, 215, 112, 0.5);
+    box-shadow: 0 0 10px rgba(255, 215, 112, 0.3);
 }
+
+/* 菜单遮罩层 */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+    z-index: 999;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* 二次元装饰 */
 .anime-decoration {
     width: 100%;
     max-width: 100%;
-    height: 250px;
-    margin: 24px auto 32px auto;
+    height: 600px;
+    margin: 24px auto 24px auto;
     background-image: url('picture/Vision.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 12px;
-    opacity: 0.3;
-    filter: grayscale(20%) brightness(1.2) contrast(1.1);
+    opacity: 0.6;
+    filter: grayscale(10%) brightness(1.2) contrast(1.1);
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     transition: all 0.3s cubic-bezier(.4,2,.6,1);
     z-index: 1;
@@ -515,29 +529,12 @@ html {
 
 .anime-decoration.vision-anim-end {
     transform: scale(1);
-    opacity: 0.3;
-}
-
-/* 移除旧的装饰元素 */
-.tech-decoration {
-    display: none;
-}
-
-/* 菜单遮罩（只覆盖内容区和菜单） */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 280px;
-    width: calc(100vw - 280px);
-    height: 100vh;
-    background: rgba(0,0,0,0.3);
-    z-index: 999;
-    transition: opacity 0.3s;
+    opacity: 0.6;
 }
 
 @media (max-width: 900px) {
     .sidebar {
-        position: static;
+        position: sticky;
         left: 0;
         top: 0;
         width: 100%;
@@ -546,6 +543,7 @@ html {
         border-radius: 12px;
     }
     .content {
+        position: sticky;
         margin-left: 0;
         width: 100%;
         padding: 30px;

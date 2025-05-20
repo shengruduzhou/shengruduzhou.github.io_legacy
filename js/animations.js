@@ -105,29 +105,89 @@ document.querySelectorAll('.post-item').forEach(item => {
 // 导航菜单动画
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
+let overlay = null;
+let closeBtn = null;
+
+function createOverlay() {
+    overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+    return overlay;
+}
+
+function createCloseButton() {
+    closeBtn = document.createElement('div');
+    closeBtn.className = 'menu-close';
+    closeBtn.innerHTML = '×';
+    navMenu.appendChild(closeBtn);
+    return closeBtn;
+}
+
+function openMenu() {
+    menuToggle.classList.add('toggle');
+    navMenu.classList.add('nav-active');
+    
+    // 创建并显示遮罩
+    if (!overlay) {
+        overlay = createOverlay();
+    }
+    overlay.classList.add('active');
+    
+    // 创建关闭按钮
+    if (!closeBtn) {
+        closeBtn = createCloseButton();
+    }
+
+    // 添加事件监听
+    overlay.addEventListener('click', closeMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    // 动画效果
+    anime({
+        targets: navMenu,
+        translateX: '0%',
+        duration: 100,
+        easing: 'easeInOutQuad'
+    });
+}
+
+function closeMenu() {
+    menuToggle.classList.remove('toggle');
+    
+    // 动画效果
+    anime({
+        targets: navMenu,
+        translateX: '100%',
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+            navMenu.classList.remove('nav-active');
+            
+            // 隐藏遮罩
+            if (overlay) {
+                overlay.classList.remove('active');
+                setTimeout(() => {
+                    if (overlay && overlay.parentNode) {
+                        overlay.parentNode.removeChild(overlay);
+                    }
+                    overlay = null;
+                }, 100);
+            }
+            
+            // 移除关闭按钮
+            if (closeBtn && closeBtn.parentNode) {
+                closeBtn.parentNode.removeChild(closeBtn);
+                closeBtn = null;
+            }
+        }
+    });
+}
 
 menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('toggle');
-    if (navMenu.classList.contains('nav-active')) {
-        // 关闭菜单
-        anime({
-            targets: navMenu,
-            translateX: '100%',
-            duration: 500,
-            easing: 'easeInOutQuad',
-            complete: () => {
-                navMenu.classList.remove('nav-active');
-            }
-        });
+    if (!navMenu.classList.contains('nav-active')) {
+        openMenu();
     } else {
-        // 打开菜单
-        navMenu.classList.add('nav-active');
-        anime({
-            targets: navMenu,
-            translateX: '0%',
-            duration: 500,
-            easing: 'easeInOutQuad'
-        });
+        closeMenu();
     }
 });
 
@@ -135,16 +195,7 @@ menuToggle.addEventListener('click', () => {
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         if (navMenu.classList.contains('nav-active')) {
-            menuToggle.classList.remove('toggle');
-            anime({
-                targets: navMenu,
-                translateX: '100%',
-                duration: 500,
-                easing: 'easeInOutQuad',
-                complete: () => {
-                    navMenu.classList.remove('nav-active');
-                }
-            });
+            closeMenu();
         }
     });
 });

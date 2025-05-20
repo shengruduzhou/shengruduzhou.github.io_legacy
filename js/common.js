@@ -173,9 +173,11 @@ class PageInitializer {
             document.body.appendChild(trail);
         }
         document.addEventListener('mousemove', (e) => {
-            // 使拖尾居中跟随鼠标，position: fixed
-            trail.style.left = e.clientX + 'px';
-            trail.style.top = e.clientY + 'px';
+            // 考虑鼠标指针的偏移量，使拖尾完全居中
+            const offsetX = trail.offsetWidth / 2;
+            const offsetY = trail.offsetHeight / 2;
+            trail.style.left = (e.clientX - offsetX) + 'px';
+            trail.style.top = (e.clientY - offsetY) + 'px';
         });
     }
 }
