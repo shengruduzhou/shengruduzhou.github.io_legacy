@@ -155,13 +155,13 @@ function closeMenu() {
     menuToggle.classList.remove('toggle');
     
     // 动画效果
-    anime({
-        targets: navMenu,
-        translateX: '100%',
+        anime({
+            targets: navMenu,
+            translateX: '100%',
         duration: 100,
-        easing: 'easeInOutQuad',
-        complete: () => {
-            navMenu.classList.remove('nav-active');
+            easing: 'easeInOutQuad',
+            complete: () => {
+                navMenu.classList.remove('nav-active');
             
             // 隐藏遮罩
             if (overlay) {
@@ -179,8 +179,8 @@ function closeMenu() {
                 closeBtn.parentNode.removeChild(closeBtn);
                 closeBtn = null;
             }
-        }
-    });
+            }
+        });
 }
 
 menuToggle.addEventListener('click', () => {

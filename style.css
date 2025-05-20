@@ -552,3 +552,115 @@ html {
         margin-bottom: 0;
     }
 }
+
+/* Categories and Tags Styles */
+.post-categories, .post-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.category-tag, .tag-tag {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.category-tag {
+    background-color: rgba(46, 139, 87, 0.2);
+    color: #2E8B57;
+    border: 1px solid rgba(46, 139, 87, 0.3);
+}
+
+.tag-tag {
+    background-color: rgba(65, 105, 225, 0.2);
+    color: #4169e1;
+    border: 1px solid rgba(65, 105, 225, 0.3);
+}
+
+.category-tag:hover, .tag-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-posts, .tag-posts {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 112, 0.1);
+}
+
+.category-post-item, .tag-post-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-post-item:last-child, .tag-post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.category-post-item a, .tag-post-item a {
+    color: #d1c4e9;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.category-post-item a:hover, .tag-post-item a:hover {
+    color: #b39ddb;
+}
+
+.category-post-item .post-date, .tag-post-item .post-date {
+    display: block;
+    font-size: 0.9em;
+    color: #00BFFF;
+    margin-top: 4px;
+}
+
+/* 分类/标签列表项整体样式 */
+.list-item {
+    margin-bottom: 32px;
+    padding: 18px 24px;
+    border-radius: 10px;
+    background: rgba(30, 30, 30, 0.7);
+    border: 1.5px solid rgba(255, 215, 112, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.list-item:hover {
+    background: rgba(30, 30, 30, 0.92);
+    box-shadow: 0 4px 16px rgba(255, 215, 112, 0.08);
+}
+
+/* 分类/标签名字样式 */
+.category-link, .tag-link {
+    font-size: 2.1em;
+    font-weight: bold;
+    color: #FFD770;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    margin-right: 12px;
+}
+
+.category-link:hover, .tag-link:hover {
+    color: #4169e1;
+    text-shadow: 0 2px 8px #FFD77055;
+}
+
+/* 数字样式 */
+.list-item span {
+    font-size: 1.5em;
+    color: #64b5f6;
+    font-weight: bold;
+    margin-left: 8px;
+    letter-spacing: 1px;
+}
