@@ -78,8 +78,6 @@ body {
     position: relative;
     text-align: center;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
 }
 
 .sidebar h1::after {
@@ -106,8 +104,6 @@ body {
     margin-bottom: 25px;
     letter-spacing: 0.6px;
     text-align: center;
-    overflow-x: auto;
-    overflow-y: auto;
 }
 
 .sidebar p {
