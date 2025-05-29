@@ -29,7 +29,6 @@ body {
     top: 40px;       
     left: 20px;
     width: 280px;
-    height: calc(100vh); /* 限制高度 */
     margin-right: 0;
     text-align: center;
     padding: 40px 30px;
@@ -174,12 +173,10 @@ body {
     margin-top: 0;
     margin-bottom: 20px;
     padding: 40px;
-    max-height: calc(130vh);
     background-color: #1e1e1e;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow-x: auto;
-    overflow-y: auto;
     z-index: 1;
 }
 
